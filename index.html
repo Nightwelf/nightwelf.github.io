@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Павел Берняев — Senior Flutter Developer</title>
+<title data-en="Pavel Bernyaev — Senior Flutter Developer">Павел Берняев — Senior Flutter Developer</title>
 <meta name="description" content="Павел Берняев — Senior Flutter-разработчик: мессенджеры, звонки на WebRTC, open-source пакеты и офлайн-приложения.">
 <meta property="og:title" content="Павел Берняев — Senior Flutter Developer">
 <meta property="og:description" content="Мессенджеры, звонки на WebRTC, open-source пакеты на pub.dev и собственные офлайн-приложения.">
@@ -794,6 +794,23 @@
   .contact .btn:hover { border-color: rgba(255,255,255,.5); }
   .contact .btn.primary { background: #8d97ff; color: #0e0f12; border-color: #8d97ff; }
   .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+  .fb { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; max-width: 720px; }
+  .fb label { display: grid; gap: 6px; }
+  .fb label.wide, .fb .fb-row { grid-column: 1 / -1; }
+  .fb input, .fb textarea {
+    font: inherit;
+    color: var(--panel-ink);
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 14px;
+    padding: 12px 14px;
+  }
+  .fb textarea { resize: vertical; min-height: 120px; }
+  .fb ::placeholder { color: #9a9aa3; opacity: 1; }
+  .fb input:focus-visible, .fb textarea:focus-visible { outline: 2px solid #8d97ff; outline-offset: 1px; }
+  .fb .hp { position: absolute; left: -9999px; }
+  .fb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+  @media (max-width: 640px) { .fb { grid-template-columns: 1fr; } }
 
   footer {
     display: flex;
@@ -870,7 +887,7 @@
       --line: #dddad3; --accent: #3445f0; --accent-soft: #eef0ff;
     }
     body { font-size: 11pt; background: #fff; }
-    .nav, .chip-btn, .marquee, .viz, .wave-card, .portrait-tag, .cta, .status, .contact .contact-links, .contact .btn { display: none !important; }
+    .nav, .chip-btn, .marquee, .viz, .wave-card, .portrait-tag, .cta, .status, .contact .contact-links, .contact .btn, .fb { display: none !important; }
     .hero { padding: 0 0 12px; }
     .hero::before, .contact::before { display: none; }
     .hero-grid { grid-template-columns: 1fr 150px; align-items: center; gap: 24px; }
@@ -907,6 +924,10 @@
     try { saved = localStorage.getItem('theme'); } catch (e) {}
     var h = new Date().getHours();
     root.setAttribute('data-theme', saved || ((h >= 7 && h < 20) ? 'light' : 'dark'));
+    var lang = null;
+    try { lang = localStorage.getItem('lang'); } catch (e) {}
+    var langs = navigator.languages || [navigator.language || ''];
+    root.lang = lang || (langs.some(function (l) { return /^ru(-|$)/i.test(l); }) ? 'ru' : 'en');
   })();
 </script>
 </head>
@@ -914,15 +935,16 @@
 
 <nav class="nav" aria-label="Основная навигация">
   <div class="wrap">
-    <a class="logo" href="#top"><span class="pulse" aria-hidden="true"></span><span><b>~/</b>nightwelf<span class="full"> · Павел Берняев</span></span></a>
+    <a class="logo" href="#top"><span class="pulse" aria-hidden="true"></span><span><b>~/</b>nightwelf<span class="full" data-en=" · Pavel Bernyaev"> · Павел Берняев</span></span></a>
     <div class="nav-links">
-      <a href="#experience">Опыт</a>
-      <a href="#apps">Приложения</a>
+      <a href="#experience" data-en="Experience">Опыт</a>
+      <a href="#apps" data-en="Apps">Приложения</a>
       <a href="#oss">Open source</a>
-      <a href="#stack">Стек</a>
-      <a href="#contact">Контакты</a>
+      <a href="#stack" data-en="Stack">Стек</a>
+      <a href="#contact" data-en="Contact">Контакты</a>
     </div>
     <div class="nav-tools">
+      <button class="chip-btn" id="langToggle" type="button" aria-label="Switch to English">EN</button>
       <button class="icon-btn" id="themeToggle" type="button" aria-label="Переключить тему">
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -936,25 +958,25 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <span class="status" data-reveal><span class="pulse" aria-hidden="true"></span>Открыт к предложениям · Екатеринбург</span>
+          <span class="status" data-reveal><span class="pulse" aria-hidden="true"></span><span data-en="Open to offers · Yekaterinburg">Открыт к предложениям · Екатеринбург</span></span>
           <h1 class="name" aria-label="Павел Берняев">
-            <span class="line" aria-hidden="true"><span style="--d:80ms">Павел</span></span>
-            <span class="line" aria-hidden="true"><span style="--d:180ms">Берняев</span></span>
+            <span class="line" aria-hidden="true"><span style="--d:80ms" data-en="Pavel">Павел</span></span>
+            <span class="line" aria-hidden="true"><span style="--d:180ms" data-en="Bernyaev">Берняев</span></span>
           </h1>
           <p class="role" data-reveal style="--d:300ms">Senior Flutter Developer</p>
-          <p class="lede" data-reveal style="--d:380ms">
+          <p class="lede" data-reveal style="--d:380ms" data-en="I design scalable Flutter apps built from &lt;strong&gt;independent packages&lt;/strong&gt; on BLoC. I’ve built corporate messengers with &lt;strong&gt;chats and WebRTC calls&lt;/strong&gt;, publish open source on pub.dev and make my own apps that &lt;strong&gt;work offline&lt;/strong&gt;.">
             Проектирую масштабируемые Flutter-приложения из <strong>независимых пакетов</strong> на BLoC.
             Строил корпоративные мессенджеры с <strong>чатами и звонками на WebRTC</strong>, публикую open-source
             на pub.dev и делаю свои приложения, которые <strong>работают без сети</strong>.
           </p>
           <div class="cta" data-reveal style="--d:460ms">
-            <a class="btn primary" href="resume.pdf">Скачать резюме · PDF
+            <a class="btn primary" href="resume.pdf"><span data-en="Download CV · PDF">Скачать резюме · PDF</span>
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M3 14h10"/></svg>
             </a>
             <a class="btn" href="https://t.me/nightwelf" target="_blank" rel="noopener">Telegram
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
             </a>
-            <a class="btn" href="mailto:nightwelf@gmail.com">Написать на почту</a>
+            <a class="btn" href="mailto:nightwelf@gmail.com" data-en="Email me">Написать на почту</a>
           </div>
         </div>
 
@@ -971,10 +993,10 @@
       </div>
 
       <ul class="stats">
-        <li data-reveal style="--d:0ms"><div class="stat-num"><span data-count="5">5</span><sup>+</sup></div><p>лет коммерческой Flutter-разработки</p></li>
-        <li data-reveal style="--d:80ms"><div class="stat-num"><span data-count="13">13</span></div><p>лет в разработке — с 2013 года</p></li>
-        <li data-reveal style="--d:160ms"><div class="stat-num"><span data-count="5">5</span></div><p>собственных пакетов на pub.dev</p></li>
-        <li data-reveal style="--d:240ms"><div class="stat-num"><span data-count="200">200</span><sup>+</sup></div><p>проведённых технических собеседований</p></li>
+        <li data-reveal style="--d:0ms"><div class="stat-num"><span data-count="5">5</span><sup>+</sup></div><p data-en="years of commercial Flutter development">лет коммерческой Flutter-разработки</p></li>
+        <li data-reveal style="--d:80ms"><div class="stat-num"><span data-count="13">13</span></div><p data-en="years in software — since 2013">лет в разработке — с 2013 года</p></li>
+        <li data-reveal style="--d:160ms"><div class="stat-num"><span data-count="5">5</span></div><p data-en="own packages on pub.dev">собственных пакетов на pub.dev</p></li>
+        <li data-reveal style="--d:240ms"><div class="stat-num"><span data-count="200">200</span><sup>+</sup></div><p data-en="technical interviews conducted">проведённых технических собеседований</p></li>
       </ul>
     </div>
 
@@ -991,7 +1013,7 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="sec-idx">01</span>
-        <h2 id="h-exp">Опыт работы</h2>
+        <h2 id="h-exp" data-en="Work experience">Опыт работы</h2>
         <span class="mono sec-note">2013 — 2026</span>
       </div>
 
@@ -999,16 +1021,16 @@
         <li class="job" data-reveal>
           <div class="when mono"><span>04.2025 — 07.2026</span></div>
           <div>
-            <h3 class="company">САТЕЛ, Группа компаний</h3>
+            <h3 class="company" data-en="SATEL Group">САТЕЛ, Группа компаний</h3>
             <p class="title">Senior Flutter Developer</p>
-            <p class="project">UC — корпоративный мессенджер</p>
+            <p class="project" data-en="UC — corporate messenger">UC — корпоративный мессенджер</p>
             <ul>
-              <li>Выполнил рефакторинг архитектуры фичи звонков</li>
-              <li>Уменьшил потребление ресурсов звонком</li>
-              <li>Спроектировал архитектуру и разработал фичу чатов</li>
-              <li>Разработал адаптивную сетку для видеозвонков</li>
-              <li>Внедрил собственные package для чатов и звонков</li>
-              <li>Работал в команде из 8 человек</li>
+              <li data-en="Refactored the calls feature architecture">Выполнил рефакторинг архитектуры фичи звонков</li>
+              <li data-en="Reduced resource usage during calls">Уменьшил потребление ресурсов звонком</li>
+              <li data-en="Designed the architecture and built the chats feature">Спроектировал архитектуру и разработал фичу чатов</li>
+              <li data-en="Built an adaptive grid for video calls">Разработал адаптивную сетку для видеозвонков</li>
+              <li data-en="Introduced in-house packages for chats and calls">Внедрил собственные package для чатов и звонков</li>
+              <li data-en="Worked in a team of 8">Работал в команде из 8 человек</li>
             </ul>
             <ul class="tags" aria-label="Стек"><li>BLoC</li><li>WebRTC</li><li>Centrifuge</li><li>Socket</li><li>Dio</li><li>RxDart</li><li>Matrix</li><li>Firebase</li><li>Clean Architecture</li><li>REST</li><li>SIP</li><li>go_router</li><li>git</li></ul>
           </div>
@@ -1019,11 +1041,11 @@
           <div>
             <h3 class="company">GiftBow</h3>
             <p class="title">Senior Flutter Developer</p>
-            <p class="project">GiftHorse — виш-листы и покупки</p>
+            <p class="project" data-en="GiftHorse — wishlists and purchases">GiftHorse — виш-листы и покупки</p>
             <ul>
-              <li>Спроектировал архитектуру</li>
-              <li>Разработал бизнес-логику и UI</li>
-              <li>Работал в команде из 4 человек</li>
+              <li data-en="Designed the architecture">Спроектировал архитектуру</li>
+              <li data-en="Built business logic and UI">Разработал бизнес-логику и UI</li>
+              <li data-en="Worked in a team of 4">Работал в команде из 4 человек</li>
             </ul>
             <ul class="tags" aria-label="Стек"><li>BLoC</li><li>go_router</li><li>Firebase</li><li>Dio</li><li>RxDart</li><li>Clean Architecture</li><li>REST</li><li>git</li></ul>
           </div>
@@ -1032,12 +1054,12 @@
         <li class="job" data-reveal>
           <div class="when mono"><span>12.2024 — 03.2025</span></div>
           <div>
-            <h3 class="company">МВидео</h3>
+            <h3 class="company" data-en="M.Video">МВидео</h3>
             <p class="title">Senior Flutter Developer</p>
-            <p class="project">Логистика и перевозки, продажи, кредитование</p>
+            <p class="project" data-en="Logistics and shipping, sales, lending">Логистика и перевозки, продажи, кредитование</p>
             <ul>
-              <li>Разработал бизнес-логику и UI крупных внутренних проектов</li>
-              <li>Работал в команде из 8 человек</li>
+              <li data-en="Built business logic and UI for large internal projects">Разработал бизнес-логику и UI крупных внутренних проектов</li>
+              <li data-en="Worked in a team of 8">Работал в команде из 8 человек</li>
             </ul>
             <ul class="tags" aria-label="Стек"><li>provider</li><li>Dio</li><li>Clean Architecture</li><li>REST</li><li>git</li></ul>
           </div>
@@ -1048,12 +1070,12 @@
           <div>
             <h3 class="company">DLGroup</h3>
             <p class="title">Senior Flutter Developer</p>
-            <p class="project">DLS — корпоративный jira-like мессенджер</p>
+            <p class="project" data-en="DLS — corporate Jira-like messenger">DLS — корпоративный jira-like мессенджер</p>
             <ul>
-              <li>Спроектировал архитектуру</li>
-              <li>Разработал бизнес-логику и UI фич: чат, звонки, задачи, мероприятия, проекты, орг. структура</li>
-              <li>Сформировал команду и выстроил процессы: code review, стандарты и спецификации разработки, провёл 200+ собеседований</li>
-              <li>Работал в команде из 8 человек</li>
+              <li data-en="Designed the architecture">Спроектировал архитектуру</li>
+              <li data-en="Built business logic and UI for features: chat, calls, tasks, events, projects, org chart">Разработал бизнес-логику и UI фич: чат, звонки, задачи, мероприятия, проекты, орг. структура</li>
+              <li data-en="Built the team and set up processes: code review, development standards and specs; conducted 200+ interviews">Сформировал команду и выстроил процессы: code review, стандарты и спецификации разработки, провёл 200+ собеседований</li>
+              <li data-en="Worked in a team of 8">Работал в команде из 8 человек</li>
             </ul>
             <ul class="tags" aria-label="Стек"><li>BLoC</li><li>auto_route</li><li>Centrifuge</li><li>Socket</li><li>WebRTC (LiveKit)</li><li>Matrix</li><li>Drift</li><li>Firebase</li><li>Dio</li><li>GraphQL</li><li>RxDart</li><li>flutter_quill</li><li>Clean Architecture</li><li>REST</li><li>SIP</li><li>git</li></ul>
           </div>
@@ -1064,29 +1086,29 @@
           <div>
             <h3 class="company">Harddays</h3>
             <p class="title">Flutter Developer</p>
-            <p class="project">Доставка еды для малых городов (Vilka), приложение для инспекторов г. Москва (ОАТИ), управление устройством по Bluetooth (Небудильник), карта лояльности сетевого магазина (Loyalty.HD)</p>
+            <p class="project" data-en="Food delivery for small towns (Vilka), an app for Moscow city inspectors (OATI), Bluetooth device control (Nebudilnik), a retail chain loyalty card (Loyalty.HD)">Доставка еды для малых городов (Vilka), приложение для инспекторов г. Москва (ОАТИ), управление устройством по Bluetooth (Небудильник), карта лояльности сетевого магазина (Loyalty.HD)</p>
             <ul>
-              <li>Вёрстка по дизайну Figma</li>
-              <li>Интеграция сервисов (Firebase, Google, Apple, Яндекс, карты)</li>
-              <li>Работал в команде из 6 человек</li>
+              <li data-en="UI implementation from Figma designs">Вёрстка по дизайну Figma</li>
+              <li data-en="Service integrations (Firebase, Google, Apple, Yandex, maps)">Интеграция сервисов (Firebase, Google, Apple, Яндекс, карты)</li>
+              <li data-en="Worked in a team of 6">Работал в команде из 6 человек</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>Bluetooth</li><li>Firebase</li><li>auto_route</li><li>Dio</li><li>RxDart</li><li>Clean Architecture</li><li>REST</li><li>get_it</li><li>freezed</li><li>Google Pay</li><li>Apple Pay</li><li>Яндекс Карты</li><li>git</li></ul>
+            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>Bluetooth</li><li>Firebase</li><li>auto_route</li><li>Dio</li><li>RxDart</li><li>Clean Architecture</li><li>REST</li><li>get_it</li><li>freezed</li><li>Google Pay</li><li>Apple Pay</li><li data-en="Yandex Maps">Яндекс Карты</li><li>git</li></ul>
           </div>
         </li>
 
         <li class="job" data-reveal>
           <div class="when mono"><span>09.2013 — 04.2022</span></div>
           <div>
-            <h3 class="company">АО «Уралэлектромедь»</h3>
-            <p class="title">Ведущий инженер-программист / инженер-программист</p>
-            <p class="project">Проекты, внедрённые за время работы</p>
+            <h3 class="company" data-en="Uralelectromed JSC">АО «Уралэлектромедь»</h3>
+            <p class="title" data-en="Lead Software Engineer / Software Engineer">Ведущий инженер-программист / инженер-программист</p>
+            <p class="project" data-en="Projects delivered">Проекты, внедрённые за время работы</p>
             <ul>
-              <li>Корпоративное Flutter-приложение — новости, зарплата, спецодежда, телефонный справочник; сопутствующая инфраструктура: web-админка контента, API-сервер, БД</li>
-              <li>Flutter-приложение для информирования об инцидентах — push-уведомления (Firebase), лента инцидентов, web-админка, API-сервер, БД</li>
-              <li>Web-приложения выдачи и проверки одноразового пропуска для охраны предприятия</li>
-              <li>Web-терминал с детальной информацией о сотруднике</li>
-              <li>Web-приложение контроля движения транспорта по GPS-трекеру</li>
-              <li>Web-приложение учёта использования парковочных мест</li>
+              <li data-en="Corporate Flutter app — news, payroll, workwear, phone directory; plus supporting infrastructure: web content admin, API server, database">Корпоративное Flutter-приложение — новости, зарплата, спецодежда, телефонный справочник; сопутствующая инфраструктура: web-админка контента, API-сервер, БД</li>
+              <li data-en="Flutter incident alert app — push notifications (Firebase), incident feed, web admin, API server, database">Flutter-приложение для информирования об инцидентах — push-уведомления (Firebase), лента инцидентов, web-админка, API-сервер, БД</li>
+              <li data-en="Web apps for issuing and checking one-time passes for site security">Web-приложения выдачи и проверки одноразового пропуска для охраны предприятия</li>
+              <li data-en="Web terminal with detailed employee info">Web-терминал с детальной информацией о сотруднике</li>
+              <li data-en="Web app for GPS tracking of vehicle movement">Web-приложение контроля движения транспорта по GPS-трекеру</li>
+              <li data-en="Web app for tracking parking space usage">Web-приложение учёта использования парковочных мест</li>
             </ul>
             <ul class="tags" aria-label="Стек"><li>Flutter</li><li>Node.js</li><li>MySQL</li><li>MSSQL</li><li>Vue.js</li><li>Vuetify</li><li>Leaflet</li><li>C#</li><li>git</li></ul>
           </div>
@@ -1100,8 +1122,8 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="sec-idx">02</span>
-        <h2 id="h-apps">Свои приложения</h2>
-        <span class="mono sec-note">от идеи до стора</span>
+        <h2 id="h-apps" data-en="My apps">Свои приложения</h2>
+        <span class="mono sec-note" data-en="from idea to store">от идеи до стора</span>
       </div>
 
       <div class="apps">
@@ -1110,39 +1132,39 @@
             <div class="bars" data-bars="44" data-seed="3"></div>
             <span class="playhead"></span>
             <div class="transcript">
-              <p><time>00:04</time><span>Записываю идею, пока не забыл.</span></p>
-              <p class="now"><time>00:09</time><span>Расшифровка — прямо на телефоне,</span></p>
-              <p><time>00:13</time><span>даже в самолётном режиме.</span></p>
+              <p><time>00:04</time><span data-en="Jotting down an idea before I forget.">Записываю идею, пока не забыл.</span></p>
+              <p class="now"><time>00:09</time><span data-en="Transcribed right on the phone,">Расшифровка — прямо на телефоне,</span></p>
+              <p><time>00:13</time><span data-en="even in airplane mode.">даже в самолётном режиме.</span></p>
             </div>
           </div>
           <div class="app-body">
-            <span class="mono">Android · whisper.cpp · в разработке</span>
+            <span class="mono" data-en="Android · whisper.cpp · in development">Android · whisper.cpp · в разработке</span>
             <h3><a href="https://nightwelf.github.io/fonic/" target="_blank" rel="noopener">Fonic</a></h3>
-            <p class="desc">Диктофон с распознаванием речи прямо на устройстве: запись, расшифровка и поиск работают в самолётном режиме.</p>
+            <p class="desc" data-en="A voice recorder with on-device speech recognition: recording, transcription and search work in airplane mode.">Диктофон с распознаванием речи прямо на устройстве: запись, расшифровка и поиск работают в самолётном режиме.</p>
             <ul>
-              <li>whisper.cpp в изоляте, модель выбирается под каждую запись</li>
-              <li>Запись в foreground service переживает убийство процесса</li>
-              <li>Поиск по расшифровкам на FTS5, перемотка по тапу на фразу, экспорт SRT/VTT</li>
+              <li data-en="whisper.cpp in an isolate, model picked per recording">whisper.cpp в изоляте, модель выбирается под каждую запись</li>
+              <li data-en="Recording in a foreground service survives process death">Запись в foreground service переживает убийство процесса</li>
+              <li data-en="FTS5 search over transcripts, tap a phrase to seek, SRT/VTT export">Поиск по расшифровкам на FTS5, перемотка по тапу на фразу, экспорт SRT/VTT</li>
             </ul>
-            <span class="app-link" data-href="nightwelf.github.io/fonic">Сайт проекта <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
+            <span class="app-link" data-href="nightwelf.github.io/fonic"><span data-en="Project site">Сайт проекта</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
           </div>
         </article>
 
         <article class="app app-kept" data-reveal style="--d:100ms">
           <div class="viz viz-kept" aria-hidden="true">
             <div class="photos"><div class="photo"><i></i></div><div class="photo"><i></i></div><div class="photo"><i></i></div></div>
-            <div class="notif"><span class="notif-ico"></span><span><b>В этот день</b>3 года назад</span></div>
+            <div class="notif"><span class="notif-ico"></span><span data-en="&lt;b&gt;On this day&lt;/b&gt;3 years ago"><b>В этот день</b>3 года назад</span></div>
           </div>
           <div class="app-body">
-            <span class="mono">Android · ML Kit · в разработке</span>
+            <span class="mono" data-en="Android · ML Kit · in development">Android · ML Kit · в разработке</span>
             <h3><a href="https://nightwelf.github.io/kept/" target="_blank" rel="noopener">Kept</a></h3>
-            <p class="desc">Каждое утро — воспоминание из фото, которые уже лежат на телефоне. Без облака и аккаунтов.</p>
+            <p class="desc" data-en="Every morning — a memory from photos already on your phone. No cloud, no accounts.">Каждое утро — воспоминание из фото, которые уже лежат на телефоне. Без облака и аккаунтов.</p>
             <ul>
-              <li>Отбор резких кадров с лицами и улыбками, отсев дублей и скриншотов</li>
-              <li>Группировка лиц по людям целиком на устройстве</li>
-              <li>Тяжёлая индексация галереи — ночью, на зарядке</li>
+              <li data-en="Picks sharp shots with faces and smiles, filters out duplicates and screenshots">Отбор резких кадров с лицами и улыбками, отсев дублей и скриншотов</li>
+              <li data-en="Groups faces by person entirely on device">Группировка лиц по людям целиком на устройстве</li>
+              <li data-en="Heavy gallery indexing runs at night while charging">Тяжёлая индексация галереи — ночью, на зарядке</li>
             </ul>
-            <span class="app-link" data-href="nightwelf.github.io/kept">Сайт проекта <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
+            <span class="app-link" data-href="nightwelf.github.io/kept"><span data-en="Project site">Сайт проекта</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
           </div>
         </article>
 
@@ -1163,15 +1185,15 @@
             </div>
           </div>
           <div class="app-body">
-            <span class="mono">Мобильная игра · Flutter · офлайн</span>
+            <span class="mono" data-en="Mobile game · Flutter · offline">Мобильная игра · Flutter · офлайн</span>
             <h3><a href="https://nightwelf.github.io/dropoly/index.html" target="_blank" rel="noopener">Dropoly</a></h3>
-            <p class="desc">Головоломка в жанре number merge drop: тап по колонке роняет плитку, совпадения сливаются каскадом с множителем очков.</p>
+            <p class="desc" data-en="A number merge drop puzzle: tap a column to drop a tile, matches merge in cascades with a score multiplier.">Головоломка в жанре number merge drop: тап по колонке роняет плитку, совпадения сливаются каскадом с множителем очков.</p>
             <ul>
-              <li>4 уровня сложности и ежедневный челлендж на общем сиде</li>
-              <li>Прокачка: скины плиток, аватары, темы, достижения</li>
-              <li>Полностью офлайн, без аккаунтов</li>
+              <li data-en="4 difficulty levels and a daily challenge on a shared seed">4 уровня сложности и ежедневный челлендж на общем сиде</li>
+              <li data-en="Progression: tile skins, avatars, themes, achievements">Прокачка: скины плиток, аватары, темы, достижения</li>
+              <li data-en="Fully offline, no accounts">Полностью офлайн, без аккаунтов</li>
             </ul>
-            <span class="app-link" data-href="nightwelf.github.io/dropoly">Сайт проекта <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
+            <span class="app-link" data-href="nightwelf.github.io/dropoly"><span data-en="Project site">Сайт проекта</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
           </div>
         </article>
       </div>
@@ -1184,38 +1206,38 @@
       <div class="sec-head" data-reveal>
         <span class="sec-idx">03</span>
         <h2 id="h-oss">Open source</h2>
-        <span class="mono sec-note">5 пакетов на pub.dev</span>
+        <span class="mono sec-note" data-en="5 packages on pub.dev">5 пакетов на pub.dev</span>
       </div>
 
       <ol class="pkgs">
         <li class="pkg" data-reveal>
           <span class="mono">01</span>
           <h3 class="pkg-name">multilevel_navigator</h3>
-          <p>Адаптивная 4-уровневая навигация поверх go_router: 5 режимов отображения от floating-панели до resizable-колонок, сохранение состояния BLoC.</p>
+          <p data-en="Adaptive 4-level navigation on top of go_router: 5 display modes from a floating panel to resizable columns, with BLoC state preserved.">Адаптивная 4-уровневая навигация поверх go_router: 5 режимов отображения от floating-панели до resizable-колонок, сохранение состояния BLoC.</p>
           <div class="pkg-links"><a href="https://pub.dev/packages/multilevel_navigator" target="_blank" rel="noopener">pub.dev</a><a href="https://github.com/Nightwelf/multilevel_navigator" target="_blank" rel="noopener">GitHub</a></div>
         </li>
         <li class="pkg" data-reveal>
           <span class="mono">02</span>
           <h3 class="pkg-name">chat_message_composer</h3>
-          <p>Композитор сообщений чата на flutter_quill: форматирование, вложения с drag-n-drop, упоминания, эмодзи, режимы ответа и редактирования.</p>
+          <p data-en="Chat message composer on flutter_quill: formatting, drag-n-drop attachments, mentions, emoji, reply and edit modes.">Композитор сообщений чата на flutter_quill: форматирование, вложения с drag-n-drop, упоминания, эмодзи, режимы ответа и редактирования.</p>
           <div class="pkg-links"><a href="https://pub.dev/packages/chat_message_composer" target="_blank" rel="noopener">pub.dev</a><a href="https://github.com/Nightwelf/chat_message_composer" target="_blank" rel="noopener">GitHub</a></div>
         </li>
         <li class="pkg" data-reveal>
           <span class="mono">03</span>
           <h3 class="pkg-name">delta_text_view</h3>
-          <p>Рендеринг Delta-формата во Flutter-виджеты без зависимости от flutter_quill, с упоминаниями, эмодзи и выделением текста.</p>
+          <p data-en="Renders the Delta format into Flutter widgets without depending on flutter_quill, with mentions, emoji and text selection.">Рендеринг Delta-формата во Flutter-виджеты без зависимости от flutter_quill, с упоминаниями, эмодзи и выделением текста.</p>
           <div class="pkg-links"><a href="https://pub.dev/packages/delta_text_view" target="_blank" rel="noopener">pub.dev</a><a href="https://github.com/Nightwelf/delta_text_view" target="_blank" rel="noopener">GitHub</a></div>
         </li>
         <li class="pkg" data-reveal>
           <span class="mono">04</span>
           <h3 class="pkg-name">fit_grid</h3>
-          <p>Адаптивная сетка карточек: подбор колонок и размера плиток на layout-фазе — ресайз без rebuild дерева виджетов.</p>
+          <p data-en="Adaptive card grid: columns and tile size are resolved in the layout phase — resizing without rebuilding the widget tree.">Адаптивная сетка карточек: подбор колонок и размера плиток на layout-фазе — ресайз без rebuild дерева виджетов.</p>
           <div class="pkg-links"><a href="https://pub.dev/packages/fit_grid" target="_blank" rel="noopener">pub.dev</a><a href="https://github.com/Nightwelf/fit_grid" target="_blank" rel="noopener">GitHub</a></div>
         </li>
         <li class="pkg" data-reveal>
           <span class="mono">05</span>
           <h3 class="pkg-name">audio_waveform_kit</h3>
-          <p>Запись аудио с визуализацией в реальном времени: FFT на чистом Dart, waveform, спектр, осциллограф и плеер — включая Web.</p>
+          <p data-en="Audio recording with real-time visualization: pure-Dart FFT, waveform, spectrum, oscilloscope and player — Web included.">Запись аудио с визуализацией в реальном времени: FFT на чистом Dart, waveform, спектр, осциллограф и плеер — включая Web.</p>
           <div class="pkg-links"><a href="https://pub.dev/packages/audio_waveform_kit" target="_blank" rel="noopener">pub.dev</a><a href="https://github.com/Nightwelf/audio_waveform_kit" target="_blank" rel="noopener">GitHub</a></div>
         </li>
       </ol>
@@ -1227,8 +1249,8 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="sec-idx">04</span>
-        <h2 id="h-stack">Стек</h2>
-        <span class="mono sec-note">чем работаю каждый день</span>
+        <h2 id="h-stack" data-en="Stack">Стек</h2>
+        <span class="mono sec-note" data-en="what I use every day">чем работаю каждый день</span>
       </div>
 
       <div class="stack-grid">
@@ -1237,15 +1259,15 @@
           <ul class="tags"><li>Flutter</li><li>Dart</li><li>BLoC</li><li>provider</li><li>RxDart</li><li>freezed</li><li>get_it</li><li>go_router</li><li>auto_route</li><li>Drift</li><li>Quill</li><li>flutter_localizations</li></ul>
         </div>
         <div class="stack-card" data-reveal style="--d:80ms">
-          <h3>Связь и данные</h3>
+          <h3 data-en="Networking and data">Связь и данные</h3>
           <ul class="tags"><li>WebRTC</li><li>SIP</li><li>WebSocket</li><li>Centrifuge</li><li>Matrix</li><li>GraphQL</li><li>REST</li><li>Dio</li><li>Firebase</li></ul>
         </div>
         <div class="stack-card" data-reveal style="--d:160ms">
-          <h3>Backend и инфраструктура</h3>
+          <h3 data-en="Backend and infrastructure">Backend и инфраструктура</h3>
           <ul class="tags"><li>Node.js</li><li>Go</li><li>C#</li><li>MySQL</li><li>MSSQL</li><li>Redis</li><li>Docker</li><li>Linux</li></ul>
         </div>
         <div class="stack-card" data-reveal style="--d:240ms">
-          <h3>Web, дизайн, AI</h3>
+          <h3 data-en="Web, design, AI">Web, дизайн, AI</h3>
           <ul class="tags"><li>Vue.js</li><li>Vuetify</li><li>Leaflet</li><li>Figma</li><li>Git</li><li class="ai">Claude</li><li class="ai">Cursor</li></ul>
         </div>
       </div>
@@ -1257,21 +1279,21 @@
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="sec-idx">05</span>
-        <h2 id="h-about">Обо мне</h2>
+        <h2 id="h-about" data-en="About me">Обо мне</h2>
       </div>
       <div class="about">
-        <p class="about-text" data-reveal>
+        <p class="about-text" data-reveal data-en="Senior Flutter developer with &lt;em&gt;5 years&lt;/em&gt; of commercial Flutter experience. I build scalable apps split into &lt;em&gt;independent packages&lt;/em&gt;, using BLoC. I’ve built large messengers — chats, calls, WebRTC — and my own open-source packages.">
           Senior Flutter-разработчик, <em>5 лет</em> коммерческой Flutter-разработки. Разрабатываю масштабируемые приложения,
           разделяя их на <em>независимые пакеты</em>, использую BLoC. Разрабатывал крупные мессенджеры — чаты, звонки, WebRTC —
           и собственные open-source пакеты.
         </p>
         <dl class="facts" data-reveal style="--d:120ms">
-          <div><dt>Город</dt><dd>Екатеринбург</dd></div>
-          <div><dt>Возраст</dt><dd>36 лет</dd></div>
-          <div><dt>Образование</dt><dd>УрФУ им. Б.Н. Ельцина, Радиотехнический факультет, «Информатика и вычислительная техника», магистр</dd></div>
-          <div><dt>Формат</dt><dd>Полная занятость, полный день</dd></div>
-          <div><dt>Командировки</dt><dd>Готов</dd></div>
-          <div><dt>Гражданство</dt><dd>Российская Федерация</dd></div>
+          <div><dt data-en="City">Город</dt><dd data-en="Yekaterinburg">Екатеринбург</dd></div>
+          <div><dt data-en="Age">Возраст</dt><dd data-en="36">36 лет</dd></div>
+          <div><dt data-en="Education">Образование</dt><dd data-en="Ural Federal University (UrFU), Faculty of Radio Engineering, Computer Science and Engineering, Master’s degree">УрФУ им. Б.Н. Ельцина, Радиотехнический факультет, «Информатика и вычислительная техника», магистр</dd></div>
+          <div><dt data-en="Employment">Формат</dt><dd data-en="Full-time, on-site hours">Полная занятость, полный день</dd></div>
+          <div><dt data-en="Business travel">Командировки</dt><dd data-en="Available">Готов</dd></div>
+          <div><dt data-en="Citizenship">Гражданство</dt><dd data-en="Russian Federation">Российская Федерация</dd></div>
         </dl>
       </div>
     </div>
@@ -1280,11 +1302,11 @@
   <!-- ===== Контакты ===== -->
   <div class="wrap">
     <section class="contact" id="contact" aria-labelledby="h-contact" data-reveal>
-      <span class="mono">06 · Контакты</span>
-      <h2 id="h-contact">Есть Flutter-задача? <span>Давайте обсудим.</span></h2>
+      <span class="mono" data-en="06 · Contact">06 · Контакты</span>
+      <h2 id="h-contact" data-en="Got a Flutter project? &lt;span&gt;Let’s talk.&lt;/span&gt;">Есть Flutter-задача? <span>Давайте обсудим.</span></h2>
       <div class="mail-row">
         <a class="mail" href="mailto:nightwelf@gmail.com">nightwelf@gmail.com</a>
-        <button class="btn" id="copyMail" type="button">Скопировать</button>
+        <button class="btn" id="copyMail" type="button" data-en="Copy">Скопировать</button>
         <span class="mono" id="copyStatus" role="status" aria-live="polite"></span>
       </div>
       <div class="contact-links">
@@ -1297,12 +1319,22 @@
         <a class="btn" href="https://github.com/Nightwelf" target="_blank" rel="noopener">GitHub
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
         </a>
-        <a class="btn" href="resume.pdf">Резюме · PDF</a>
+        <a class="btn" href="resume.pdf" data-en="CV · PDF">Резюме · PDF</a>
       </div>
+      <form class="fb" id="feedback">
+        <label><span class="mono" data-en="Name">Имя</span><input name="name" maxlength="100" autocomplete="name" placeholder="Как к вам обращаться"></label>
+        <label><span class="mono" data-en="Contact (Telegram / email)">Контакт (Telegram / почта)</span><input name="contact" maxlength="200" placeholder="@username или почта — чтобы я мог ответить"></label>
+        <label class="wide"><span class="mono" data-en="Message">Сообщение</span><textarea name="message" required maxlength="3500" placeholder="Коротко о задаче: что за приложение, сроки, бюджет"></textarea></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="fb-row">
+          <button class="btn primary" type="submit" data-en="Send">Отправить</button>
+          <span class="mono" id="fbStatus" role="status" aria-live="polite"></span>
+        </div>
+      </form>
     </section>
 
     <footer class="mono">
-      <span>© 2026 Павел Берняев</span>
+      <span data-en="© 2026 Pavel Bernyaev">© 2026 Павел Берняев</span>
       <button class="chip-btn" id="debugToggle" type="button" aria-pressed="false" title="Как debugPaintSizeEnabled во Flutter">
         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x=".5" y=".5" width="11" height="11" fill="none" stroke="currentColor" stroke-dasharray="2 1.5"/></svg><span class="lbl">debugPaint</span>
       </button>
@@ -1314,6 +1346,42 @@
   (function () {
     var root = document.documentElement;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Russian is in the markup, English in data-en; attributes are listed here.
+    var attrs = [
+      ['.nav', 'aria-label', 'Основная навигация', 'Main navigation'],
+      ['#themeToggle', 'aria-label', 'Переключить тему', 'Toggle theme'],
+      ['#langToggle', 'aria-label', 'Switch to English', 'Переключить на русский'],
+      ['.name', 'aria-label', 'Павел Берняев', 'Pavel Bernyaev'],
+      ['.portrait img', 'alt', 'Павел Берняев', 'Pavel Bernyaev'],
+      ['.job .tags', 'aria-label', 'Стек', 'Stack'],
+      ['#debugToggle', 'title', 'Как debugPaintSizeEnabled во Flutter', 'Like debugPaintSizeEnabled in Flutter'],
+      ['.fb [name=name]', 'placeholder', 'Как к вам обращаться', 'What should I call you'],
+      ['.fb [name=contact]', 'placeholder', '@username или почта — чтобы я мог ответить', '@username or email, so I can reply'],
+      ['.fb [name=message]', 'placeholder', 'Коротко о задаче: что за приложение, сроки, бюджет', 'Briefly about the project: the app, timeline, budget']
+    ];
+    var langBtn = document.getElementById('langToggle');
+    function setLang(lang) {
+      var en = lang === 'en';
+      root.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        if (el.dataset.ru === undefined) {
+          if (!en) return;
+          el.dataset.ru = el.innerHTML;
+        }
+        el.innerHTML = en ? el.dataset.en : el.dataset.ru;
+      });
+      attrs.forEach(function (a) {
+        document.querySelectorAll(a[0]).forEach(function (el) { el.setAttribute(a[1], en ? a[3] : a[2]); });
+      });
+      langBtn.textContent = en ? 'RU' : 'EN';
+    }
+    setLang(root.lang);
+    langBtn.addEventListener('click', function () {
+      var next = root.lang === 'en' ? 'ru' : 'en';
+      setLang(next);
+      try { localStorage.setItem('lang', next); } catch (e) {}
+    });
 
     document.getElementById('themeToggle').addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -1392,11 +1460,36 @@
         clearTimeout(timer);
         timer = setTimeout(function () { status.textContent = ''; }, 2400);
       };
-      if (!navigator.clipboard) return done('Почта: nightwelf@gmail.com');
+      var en = document.documentElement.lang === 'en';
+      if (!navigator.clipboard) return done((en ? 'Email: ' : 'Почта: ') + 'nightwelf@gmail.com');
       navigator.clipboard.writeText('nightwelf@gmail.com').then(
-        function () { done('✓ Скопировано'); },
-        function () { done('Не удалось скопировать'); }
+        function () { done(en ? '✓ Copied' : '✓ Скопировано'); },
+        function () { done(en ? 'Couldn’t copy' : 'Не удалось скопировать'); }
       );
+    });
+  })();
+
+  (function () {
+    var form = document.getElementById('feedback');
+    var status = document.getElementById('fbStatus');
+    var btn = form.querySelector('button');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var en = document.documentElement.lang === 'en';
+      btn.disabled = true;
+      status.textContent = en ? 'Sending…' : 'Отправляю…';
+      fetch('https://feedback-worker.nightwelf.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      }).then(function (r) {
+        if (!r.ok) throw r;
+        form.reset();
+        status.textContent = en ? '✓ Sent, I’ll get back to you' : '✓ Отправлено, отвечу';
+      }).catch(function () {
+        // Text stays in the form so nothing is lost.
+        status.textContent = en ? 'Couldn’t send — try Telegram or email' : 'Не отправилось — напишите в Telegram или на почту';
+      }).finally(function () { btn.disabled = false; });
     });
   })();
 </script>
