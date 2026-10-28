@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-en="Pavel Bernyaev — Senior Flutter Developer">Павел Берняев — Senior Flutter Developer</title>
+<title data-en="Pavel Bernyaev — Senior Flutter Developer / Tech Lead">Павел Берняев — Senior Flutter Developer / Tech Lead</title>
 <meta name="description" content="Павел Берняев — Senior Flutter-разработчик: мессенджеры, звонки на WebRTC, open-source пакеты и офлайн-приложения.">
 <meta property="og:title" content="Павел Берняев — Senior Flutter Developer">
 <meta property="og:description" content="Мессенджеры, звонки на WebRTC, open-source пакеты на pub.dev и собственные офлайн-приложения.">
@@ -741,6 +741,8 @@
     text-wrap: pretty;
   }
   .about-text em { font-style: normal; color: var(--accent); }
+  .about-text p { margin: 0; }
+  .about-text p + p { margin-top: 0.8em; }
   .facts { margin: 0; display: grid; gap: 0; }
   .facts div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
   .facts div:last-child { border-bottom: 1px solid var(--line); }
@@ -963,11 +965,11 @@
             <span class="line" aria-hidden="true"><span style="--d:80ms" data-en="Pavel">Павел</span></span>
             <span class="line" aria-hidden="true"><span style="--d:180ms" data-en="Bernyaev">Берняев</span></span>
           </h1>
-          <p class="role" data-reveal style="--d:300ms">Senior Flutter Developer</p>
-          <p class="lede" data-reveal style="--d:380ms" data-en="I design scalable Flutter apps built from &lt;strong&gt;independent packages&lt;/strong&gt; on BLoC. I’ve built corporate messengers with &lt;strong&gt;chats and WebRTC calls&lt;/strong&gt;, publish open source on pub.dev and make my own apps that &lt;strong&gt;work offline&lt;/strong&gt;.">
-            Проектирую масштабируемые Flutter-приложения из <strong>независимых пакетов</strong> на BLoC.
-            Строил корпоративные мессенджеры с <strong>чатами и звонками на WebRTC</strong>, публикую open-source
-            на pub.dev и делаю свои приложения, которые <strong>работают без сети</strong>.
+          <p class="role" data-reveal style="--d:300ms">Senior Flutter Developer / Tech Lead</p>
+          <p class="lede" data-reveal style="--d:380ms" data-en="5 years on Flutter, in software since 2013. For 4 years I built corporate messengers: &lt;strong&gt;chats, WebRTC/SIP calls&lt;/strong&gt;, and in DLS also a task tracker with an org chart. Mobile, desktop and web — &lt;strong&gt;from one codebase&lt;/strong&gt;.">
+            5 лет на Flutter, в разработке с 2013 года. 4 года делал корпоративные мессенджеры:
+            <strong>чаты, звонки на WebRTC/SIP</strong>, а в DLS ещё и таск-трекер с оргструктурой. Мобильные устройства,
+            десктоп и web — <strong>из одной кодовой базы</strong>.
           </p>
           <div class="cta" data-reveal style="--d:460ms">
             <a class="btn primary" href="resume.pdf"><span data-en="Download CV · PDF">Скачать резюме · PDF</span>
@@ -1002,8 +1004,8 @@
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Flutter</span><span>Dart</span><span>BLoC</span><span>WebRTC</span><span>Drift</span><span>go_router</span><span>Centrifuge</span><span>Matrix</span><span>RxDart</span><span>SIP</span><span>Firebase</span><span>GraphQL</span>
-        <span>Flutter</span><span>Dart</span><span>BLoC</span><span>WebRTC</span><span>Drift</span><span>go_router</span><span>Centrifuge</span><span>Matrix</span><span>RxDart</span><span>SIP</span><span>Firebase</span><span>GraphQL</span>
+        <span>Flutter</span><span>Dart</span><span>BLoC</span><span>WebRTC</span><span>Drift</span><span>go_router</span><span>Centrifugo</span><span>Matrix</span><span>RxDart</span><span>SIP</span><span>Firebase</span><span>GraphQL</span>
+        <span>Flutter</span><span>Dart</span><span>BLoC</span><span>WebRTC</span><span>Drift</span><span>go_router</span><span>Centrifugo</span><span>Matrix</span><span>RxDart</span><span>SIP</span><span>Firebase</span><span>GraphQL</span>
       </div>
     </div>
   </header>
@@ -1019,49 +1021,44 @@
 
       <ol class="jobs">
         <li class="job" data-reveal>
-          <div class="when mono"><span>04.2025 — 07.2026</span></div>
+          <div class="when mono"><span data-en="08.2026 — present">08.2026 — н.в.</span></div>
           <div>
-            <h3 class="company" data-en="SATEL Group">САТЕЛ, Группа компаний</h3>
-            <p class="title">Senior Flutter Developer</p>
-            <p class="project" data-en="UC — corporate messenger">UC — корпоративный мессенджер</p>
+            <h3 class="company" data-en="Own projects">Собственные проекты</h3>
+            <p class="title" data-en="Flutter Developer (independent)">Flutter Developer (самостоятельно)</p>
             <ul>
-              <li data-en="Refactored the calls feature architecture">Выполнил рефакторинг архитектуры фичи звонков</li>
-              <li data-en="Reduced resource usage during calls">Уменьшил потребление ресурсов звонком</li>
-              <li data-en="Designed the architecture and built the chats feature">Спроектировал архитектуру и разработал фичу чатов</li>
-              <li data-en="Built an adaptive grid for video calls">Разработал адаптивную сетку для видеозвонков</li>
-              <li data-en="Introduced in-house packages for chats and calls">Внедрил собственные package для чатов и звонков</li>
-              <li data-en="Worked in a team of 8">Работал в команде из 8 человек</li>
+              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Dropoly&lt;/a&gt; — a Flutter puzzle game, published on Google Play and RuStore"><a href="#apps">Dropoly</a> — головоломка на Flutter, опубликована в Google Play и RuStore</li>
+              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Fonic&lt;/a&gt; — an offline voice recorder with on-device speech recognition: whisper.cpp in an isolate, recording in a foreground service, FTS5 full-text search"><a href="#apps">Fonic</a> — офлайн-диктофон с распознаванием речи на устройстве: whisper.cpp в изоляте, запись в foreground service, полнотекстовый поиск на FTS5</li>
+              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Kept&lt;/a&gt; — memories from your gallery without the cloud: ML Kit, on-device face grouping, background indexing while charging"><a href="#apps">Kept</a> — подборки воспоминаний из галереи без облака: ML Kit, группировка лиц на устройстве, фоновая индексация на зарядке</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>WebRTC</li><li>Centrifuge</li><li>Socket</li><li>Dio</li><li>RxDart</li><li>Matrix</li><li>Firebase</li><li>Clean Architecture</li><li>REST</li><li>SIP</li><li>go_router</li><li>git</li></ul>
           </div>
         </li>
 
         <li class="job" data-reveal>
-          <div class="when mono"><span>03.2025 — 04.2025</span></div>
+          <div class="when mono"><span>04.2025 — 07.2026</span></div>
           <div>
-            <h3 class="company">GiftBow</h3>
+            <h3 class="company" data-en="SATEL">САТЕЛ</h3>
             <p class="title">Senior Flutter Developer</p>
-            <p class="project" data-en="GiftHorse — wishlists and purchases">GiftHorse — виш-листы и покупки</p>
+            <p class="project" data-en="UC — corporate messenger: chats, WebRTC/SIP audio and video calls, presence">UC — корпоративный мессенджер: чаты, аудио/видеозвонки WebRTC/SIP, статусы присутствия</p>
             <ul>
-              <li data-en="Designed the architecture">Спроектировал архитектуру</li>
-              <li data-en="Built business logic and UI">Разработал бизнес-логику и UI</li>
-              <li data-en="Worked in a team of 4">Работал в команде из 4 человек</li>
+              <li data-en="Rewrote the WebRTC/SIP calls architecture and cut in-call resource usage by about 30% CPU, 30% memory and 20% battery">Переписал архитектуру звонков на WebRTC/SIP и снизил потребление ресурсов в звонке примерно на 30% по CPU, на 30% по памяти и на 20% по расходу батареи</li>
+              <li data-en="Designed and built chats from scratch on Centrifugo: one-to-one and group, real-time online statuses">Спроектировал и разработал чаты с нуля на Centrifugo: личные и групповые, онлайн-статусы пользователей в реальном времени</li>
+              <li data-en="Built an adaptive video call grid: the layout adapts to the number of participants and screen size, from phone to desktop">Сделал адаптивную сетку видеозвонка: раскладка подстраивается под число участников и размер экрана, от телефона до десктопа</li>
+              <li data-en="Extracted chats and calls into in-house packages; about 80% of the package code was written with AI assistants, while I owned architecture, review and debugging">Вынес чаты и звонки в собственные пакеты; около 80% кода пакетов написал с AI-ассистентами, архитектуру, ревью и отладку вёл сам</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>go_router</li><li>Firebase</li><li>Dio</li><li>RxDart</li><li>Clean Architecture</li><li>REST</li><li>git</li></ul>
+            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>Clean Architecture</li><li>go_router</li><li>WebRTC</li><li>SIP</li><li>Centrifugo</li><li>Matrix</li><li>Firebase</li><li>Dio</li><li>RxDart</li></ul>
           </div>
         </li>
 
         <li class="job" data-reveal>
           <div class="when mono"><span>12.2024 — 03.2025</span></div>
           <div>
-            <h3 class="company" data-en="M.Video">МВидео</h3>
+            <h3 class="company" data-en="M.Video-Eldorado">М.Видео-Эльдорадо</h3>
             <p class="title">Senior Flutter Developer</p>
-            <p class="project" data-en="Logistics and shipping, sales, lending">Логистика и перевозки, продажи, кредитование</p>
+            <p class="project" data-en="Internal services: logistics, sales, lending">Внутренние сервисы: логистика, продажи, кредитование</p>
             <ul>
-              <li data-en="Built business logic and UI for large internal projects">Разработал бизнес-логику и UI крупных внутренних проектов</li>
-              <li data-en="Worked in a team of 8">Работал в команде из 8 человек</li>
+              <li data-en="Built 4 internal Flutter Web apps: goods movement, delivery calculator, repair tracking, trade-in">Разработал 4 внутренних web-приложения на Flutter Web: движение товаров, калькулятор доставки, учёт ремонтов, трейд-ин</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>provider</li><li>Dio</li><li>Clean Architecture</li><li>REST</li><li>git</li></ul>
+            <ul class="tags" aria-label="Стек"><li>Flutter Web</li><li>provider</li><li>Dio</li><li>Clean Architecture</li></ul>
           </div>
         </li>
 
@@ -1069,15 +1066,16 @@
           <div class="when mono"><span>06.2022 — 12.2024</span></div>
           <div>
             <h3 class="company">DLGroup</h3>
-            <p class="title">Senior Flutter Developer</p>
-            <p class="project" data-en="DLS — corporate Jira-like messenger">DLS — корпоративный jira-like мессенджер</p>
+            <p class="title">Tech Lead / Senior Flutter Developer</p>
+            <p class="project" data-en="DLS — corporate messenger with a task tracker. iOS, Android, macOS, Windows, Linux, Web from one codebase">DLS — корпоративный мессенджер с таск-трекером. iOS, Android, macOS, Windows, Linux, Web из одной кодовой базы</p>
             <ul>
-              <li data-en="Designed the architecture">Спроектировал архитектуру</li>
-              <li data-en="Built business logic and UI for features: chat, calls, tasks, events, projects, org chart">Разработал бизнес-логику и UI фич: чат, звонки, задачи, мероприятия, проекты, орг. структура</li>
-              <li data-en="Built the team and set up processes: code review, development standards and specs; conducted 200+ interviews">Сформировал команду и выстроил процессы: code review, стандарты и спецификации разработки, провёл 200+ собеседований</li>
-              <li data-en="Worked in a team of 8">Работал в команде из 8 человек</li>
+              <li data-en="Started the project solo: chose the architecture (features in isolated packages, state managed with BLoC), shipped the first version and grew the Flutter team to 8; ran 200+ technical interviews to do it">Начинал проект один: выбрал архитектуру (фичи в изолированных пакетах, состояние на BLoC), собрал первую версию и вырастил Flutter-команду до 8 человек; провёл для этого 200+ технических собеседований</li>
+              <li data-en="Set up team processes: code review, coding standards, a feature spec template">Выстроил процессы команды: code review, стандарты кода, шаблон спецификаций фич</li>
+              <li data-en="Prototyped and compared several communication stacks: Matrix and Centrifugo for chats, LiveKit, Jitsi and SIP via Asterisk for calls; LiveKit and Centrifugo went to production">Прототипировал и сравнил несколько стеков связи: для чатов Matrix и Centrifugo, для звонков LiveKit, Jitsi и SIP через Asterisk; в прод ушли LiveKit и Centrifugo</li>
+              <li data-en="Built chats and calls: one-to-one and group, rich text (flutter_quill), local cache on Drift, calling a contact from the phone book via Firebase">Разработал чаты и звонки: личные и групповые, форматированный текст (flutter_quill), локальный кэш на Drift, звонок контакту из телефонной книги через Firebase</li>
+              <li data-en="Built the task tracker (list, tree, kanban), portfolios and projects, company org chart">Сделал таск-трекер (список, дерево, канбан), портфели и проекты, оргструктуру компании</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>auto_route</li><li>Centrifuge</li><li>Socket</li><li>WebRTC (LiveKit)</li><li>Matrix</li><li>Drift</li><li>Firebase</li><li>Dio</li><li>GraphQL</li><li>RxDart</li><li>flutter_quill</li><li>Clean Architecture</li><li>REST</li><li>SIP</li><li>git</li></ul>
+            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>Clean Architecture</li><li>auto_route</li><li>Matrix</li><li>Centrifugo</li><li>LiveKit</li><li>Jitsi</li><li>SIP (Asterisk)</li><li>Drift</li><li>Firebase</li><li>GraphQL</li><li>Dio</li><li>RxDart</li><li>flutter_quill</li></ul>
           </div>
         </li>
 
@@ -1086,13 +1084,12 @@
           <div>
             <h3 class="company">Harddays</h3>
             <p class="title">Flutter Developer</p>
-            <p class="project" data-en="Food delivery for small towns (Vilka), an app for Moscow city inspectors (OATI), Bluetooth device control (Nebudilnik), a retail chain loyalty card (Loyalty.HD)">Доставка еды для малых городов (Vilka), приложение для инспекторов г. Москва (ОАТИ), управление устройством по Bluetooth (Небудильник), карта лояльности сетевого магазина (Loyalty.HD)</p>
+            <p class="project" data-en="Outsourcing, team of 6">Аутсорс, команда 6 человек</p>
             <ul>
-              <li data-en="UI implementation from Figma designs">Вёрстка по дизайну Figma</li>
-              <li data-en="Service integrations (Firebase, Google, Apple, Yandex, maps)">Интеграция сервисов (Firebase, Google, Apple, Яндекс, карты)</li>
-              <li data-en="Worked in a team of 6">Работал в команде из 6 человек</li>
+              <li data-en="Built 4 client apps: Vilka food delivery, an app for OATI inspectors (Moscow), Nebudilnik (Bluetooth device control), Loyalty.HD loyalty card">Разработал 4 приложения для клиентов: доставку еды Vilka, приложение для инспекторов ОАТИ (Москва), Небудильник (управление устройством по Bluetooth), карту лояльности Loyalty.HD</li>
+              <li data-en="Integrated Google Pay and Apple Pay, Yandex Maps, Firebase, Google/Apple/Yandex sign-in">Интегрировал Google Pay и Apple Pay, Яндекс Карты, Firebase, авторизацию Google/Apple/Яндекс</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>Bluetooth</li><li>Firebase</li><li>auto_route</li><li>Dio</li><li>RxDart</li><li>Clean Architecture</li><li>REST</li><li>get_it</li><li>freezed</li><li>Google Pay</li><li>Apple Pay</li><li data-en="Yandex Maps">Яндекс Карты</li><li>git</li></ul>
+            <ul class="tags" aria-label="Стек"><li>BLoC</li><li>Clean Architecture</li><li>auto_route</li><li>get_it</li><li>freezed</li><li>Dio</li><li>RxDart</li><li>Firebase</li><li>Bluetooth</li></ul>
           </div>
         </li>
 
@@ -1100,17 +1097,14 @@
           <div class="when mono"><span>09.2013 — 04.2022</span></div>
           <div>
             <h3 class="company" data-en="Uralelectromed JSC">АО «Уралэлектромедь»</h3>
-            <p class="title" data-en="Lead Software Engineer / Software Engineer">Ведущий инженер-программист / инженер-программист</p>
-            <p class="project" data-en="Projects delivered">Проекты, внедрённые за время работы</p>
+            <p class="title" data-en="Lead Software Engineer">Ведущий инженер-программист</p>
+            <p class="project" data-en="Sole developer: mobile apps, backend, web admin panels">Единственный разработчик: мобильные приложения, бэкенд, веб-админки</p>
             <ul>
-              <li data-en="Corporate Flutter app — news, payroll, workwear, phone directory; plus supporting infrastructure: web content admin, API server, database">Корпоративное Flutter-приложение — новости, зарплата, спецодежда, телефонный справочник; сопутствующая инфраструктура: web-админка контента, API-сервер, БД</li>
-              <li data-en="Flutter incident alert app — push notifications (Firebase), incident feed, web admin, API server, database">Flutter-приложение для информирования об инцидентах — push-уведомления (Firebase), лента инцидентов, web-админка, API-сервер, БД</li>
-              <li data-en="Web apps for issuing and checking one-time passes for site security">Web-приложения выдачи и проверки одноразового пропуска для охраны предприятия</li>
-              <li data-en="Web terminal with detailed employee info">Web-терминал с детальной информацией о сотруднике</li>
-              <li data-en="Web app for GPS tracking of vehicle movement">Web-приложение контроля движения транспорта по GPS-трекеру</li>
-              <li data-en="Web app for tracking parking space usage">Web-приложение учёта использования парковочных мест</li>
+              <li data-en="Single-handedly built the corporate Flutter app (news, payslip, workwear, directory) together with a Node.js API, MySQL/MSSQL databases and a Vue admin panel">В одиночку разработал корпоративное мобильное приложение на Flutter (новости, расчётный листок, спецодежда, справочник) вместе с API на Node.js, БД MySQL/MSSQL и админкой на Vue</li>
+              <li data-en="Built an incident alert app with Firebase push notifications on the same infrastructure">Сделал приложение оповещения об инцидентах с push-уведомлениями через Firebase, на той же инфраструктуре</li>
+              <li data-en="Built web systems for the plant: security passes, GPS vehicle tracking, parking management, an information kiosk">Разработал веб-системы для предприятия: пропуска для охраны, GPS-контроль транспорта, учёт парковки, информационный киоск</li>
             </ul>
-            <ul class="tags" aria-label="Стек"><li>Flutter</li><li>Node.js</li><li>MySQL</li><li>MSSQL</li><li>Vue.js</li><li>Vuetify</li><li>Leaflet</li><li>C#</li><li>git</li></ul>
+            <ul class="tags" aria-label="Стек"><li>Flutter</li><li>Node.js</li><li>MySQL</li><li>MSSQL</li><li>Vue.js</li><li>Vuetify</li><li>Leaflet</li><li>C#</li></ul>
           </div>
         </li>
       </ol>
@@ -1185,7 +1179,7 @@
             </div>
           </div>
           <div class="app-body">
-            <span class="mono" data-en="Mobile game · Flutter · offline">Мобильная игра · Flutter · офлайн</span>
+            <span class="mono" data-en="Google Play · RuStore · offline">Google Play · RuStore · офлайн</span>
             <h3><a href="https://nightwelf.github.io/dropoly/index.html" target="_blank" rel="noopener">Dropoly</a></h3>
             <p class="desc" data-en="A number merge drop puzzle: tap a column to drop a tile, matches merge in cascades with a score multiplier.">Головоломка в жанре number merge drop: тап по колонке роняет плитку, совпадения сливаются каскадом с множителем очков.</p>
             <ul>
@@ -1219,7 +1213,7 @@
         <li class="pkg" data-reveal>
           <span class="mono">02</span>
           <h3 class="pkg-name">chat_message_composer</h3>
-          <p data-en="Chat message composer on flutter_quill: formatting, drag-n-drop attachments, mentions, emoji, reply and edit modes.">Композитор сообщений чата на flutter_quill: форматирование, вложения с drag-n-drop, упоминания, эмодзи, режимы ответа и редактирования.</p>
+          <p data-en="Chat message input field on flutter_quill: formatting, drag-n-drop attachments, mentions, emoji, reply and edit modes.">Поле ввода сообщений чата на flutter_quill: форматирование, вложения с drag-n-drop, упоминания, эмодзи, режимы ответа и редактирования.</p>
           <div class="pkg-links"><a href="https://pub.dev/packages/chat_message_composer" target="_blank" rel="noopener">pub.dev</a><a href="https://github.com/Nightwelf/chat_message_composer" target="_blank" rel="noopener">GitHub</a></div>
         </li>
         <li class="pkg" data-reveal>
@@ -1256,11 +1250,11 @@
       <div class="stack-grid">
         <div class="stack-card" data-reveal>
           <h3>Flutter</h3>
-          <ul class="tags"><li>Flutter</li><li>Dart</li><li>BLoC</li><li>provider</li><li>RxDart</li><li>freezed</li><li>get_it</li><li>go_router</li><li>auto_route</li><li>Drift</li><li>Quill</li><li>flutter_localizations</li></ul>
+          <ul class="tags"><li>Flutter</li><li>Dart</li><li>BLoC</li><li>provider</li><li>RxDart</li><li>freezed</li><li>get_it</li><li>go_router</li><li>auto_route</li><li>Drift</li><li>SQLite</li><li>flutter_quill</li><li>Flutter Web</li><li>Flutter Desktop</li></ul>
         </div>
         <div class="stack-card" data-reveal style="--d:80ms">
           <h3 data-en="Networking and data">Связь и данные</h3>
-          <ul class="tags"><li>WebRTC</li><li>SIP</li><li>WebSocket</li><li>Centrifuge</li><li>Matrix</li><li>GraphQL</li><li>REST</li><li>Dio</li><li>Firebase</li></ul>
+          <ul class="tags"><li>WebRTC</li><li>SIP</li><li>LiveKit</li><li>Jitsi</li><li>Asterisk</li><li>Centrifugo</li><li>Matrix</li><li>GraphQL</li><li>Dio</li><li>Firebase</li></ul>
         </div>
         <div class="stack-card" data-reveal style="--d:160ms">
           <h3 data-en="Backend and infrastructure">Backend и инфраструктура</h3>
@@ -1268,7 +1262,7 @@
         </div>
         <div class="stack-card" data-reveal style="--d:240ms">
           <h3 data-en="Web, design, AI">Web, дизайн, AI</h3>
-          <ul class="tags"><li>Vue.js</li><li>Vuetify</li><li>Leaflet</li><li>Figma</li><li>Git</li><li class="ai">Claude</li><li class="ai">Cursor</li></ul>
+          <ul class="tags"><li>Vue.js</li><li>Vuetify</li><li>Leaflet</li><li>Figma</li><li>Git</li><li class="ai">Claude Code</li><li class="ai">Cursor</li></ul>
         </div>
       </div>
     </div>
@@ -1282,16 +1276,15 @@
         <h2 id="h-about" data-en="About me">Обо мне</h2>
       </div>
       <div class="about">
-        <p class="about-text" data-reveal data-en="Senior Flutter developer with &lt;em&gt;5 years&lt;/em&gt; of commercial Flutter experience. I build scalable apps split into &lt;em&gt;independent packages&lt;/em&gt;, using BLoC. I’ve built large messengers — chats, calls, WebRTC — and my own open-source packages.">
-          Senior Flutter-разработчик, <em>5 лет</em> коммерческой Flutter-разработки. Разрабатываю масштабируемые приложения,
-          разделяя их на <em>независимые пакеты</em>, использую BLoC. Разрабатывал крупные мессенджеры — чаты, звонки, WebRTC —
-          и собственные open-source пакеты.
-        </p>
+        <div class="about-text" data-reveal>
+          <p data-en="At DLGroup I was the tech lead: I started the project solo, chose the architecture and the communication stack (compared Matrix, Centrifugo, LiveKit, Jitsi, Asterisk), grew the team to &lt;em&gt;8 people&lt;/em&gt;, ran &lt;em&gt;200+ technical interviews&lt;/em&gt;, set up code review and standards.">В DLGroup был техлидом: начинал проект один, выбрал архитектуру и стек связи (сравнивал Matrix, Centrifugo, LiveKit, Jitsi, Asterisk), вырастил команду до <em>8 человек</em>, провёл <em>200+ технических собеседований</em>, выстроил code review и стандарты.</p>
+          <p data-en="I write modular code: features in &lt;em&gt;isolated packages&lt;/em&gt;, state managed with BLoC. 5 of my open-source packages are on pub.dev. I have backend experience (Node.js, Go, SQL), so I can stand up the API for an app myself. I actively use Claude Code and Cursor.">Пишу модульно: фичи в <em>изолированных пакетах</em>, состояние на BLoC. 5 своих open source пакетов на pub.dev. Есть бэкенд-опыт (Node.js, Go, SQL), так что API под приложение могу поднять сам. В работе активно использую Claude Code и Cursor.</p>
+        </div>
         <dl class="facts" data-reveal style="--d:120ms">
           <div><dt data-en="City">Город</dt><dd data-en="Yekaterinburg">Екатеринбург</dd></div>
           <div><dt data-en="Age">Возраст</dt><dd data-en="36">36 лет</dd></div>
-          <div><dt data-en="Education">Образование</dt><dd data-en="Ural Federal University (UrFU), Faculty of Radio Engineering, Computer Science and Engineering, Master’s degree">УрФУ им. Б.Н. Ельцина, Радиотехнический факультет, «Информатика и вычислительная техника», магистр</dd></div>
-          <div><dt data-en="Employment">Формат</dt><dd data-en="Full-time, on-site hours">Полная занятость, полный день</dd></div>
+          <div><dt data-en="Education">Образование</dt><dd data-en="Ural Federal University (UrFU), Computer Science and Engineering, Master’s degree">УрФУ им. Б.Н. Ельцина, «Информатика и вычислительная техника», магистр</dd></div>
+          <div><dt data-en="Employment">Формат</dt><dd data-en="Full-time, remote or office">Полная занятость, удалённо или офис</dd></div>
           <div><dt data-en="Business travel">Командировки</dt><dd data-en="Available">Готов</dd></div>
           <div><dt data-en="Citizenship">Гражданство</dt><dd data-en="Russian Federation">Российская Федерация</dd></div>
         </dl>
@@ -1319,6 +1312,7 @@
         <a class="btn" href="https://github.com/Nightwelf" target="_blank" rel="noopener">GitHub
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>
         </a>
+        <a class="btn" href="tel:+79630444499">+7 963 044-44-99</a>
         <a class="btn" href="resume.pdf" data-en="CV · PDF">Резюме · PDF</a>
       </div>
       <form class="fb" id="feedback">
