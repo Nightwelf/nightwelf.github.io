@@ -1,13 +1,16 @@
 # Берняев Павел Олегович
 
-**Senior Flutter Developer**
+**Senior Flutter Developer / Tech Lead**
 
-- Занятость: Полная
-- График работы: Полный день
+- Статус: открыт к предложениям
+- Занятость: полная, удалённо или офис
 - Готовность к командировкам: да
 - Электронная почта: nightwelf@gmail.com
+- Телефон: [+7 963 044-44-99](tel:+79630444499)
 - Telegram: [@nightwelf](https://t.me/nightwelf)
 - LinkedIn: [linkedin.com/in/pavelbernyaev](https://www.linkedin.com/in/pavelbernyaev/)
+- GitHub: [github.com/Nightwelf](https://github.com/Nightwelf)
+- Резюме: [PDF](resume.pdf)
 
 ## Личная информация
 
@@ -18,7 +21,11 @@
 
 ### О себе
 
-Senior Flutter-разработчик, 5 лет коммерческой Flutter-разработки. Разрабатываю масштабируемые приложения, разделяя их на независимые пакеты, использую BLoC. Разрабатывал крупные мессенджеры (чаты, звонки, WebRTC) и собственные open-source пакеты.
+5 лет на Flutter, в разработке с 2013 года. 4 года делал корпоративные мессенджеры: чаты, звонки на WebRTC/SIP, а в DLS ещё и таск-трекер с оргструктурой. Мобильные устройства, десктоп и web — из одной кодовой базы.
+
+В DLGroup был техлидом: начинал проект один, выбрал архитектуру и стек связи (сравнивал Matrix, Centrifugo, LiveKit, Jitsi, Asterisk), вырастил команду до 8 человек, провёл 200+ технических собеседований, выстроил code review и стандарты.
+
+Пишу модульно: фичи в изолированных пакетах, состояние на BLoC. 5 своих open source пакетов на pub.dev. Есть бэкенд-опыт (Node.js, Go, SQL), так что API под приложение могу поднять сам. В работе активно использую Claude Code и Cursor.
 
 ### Образование
 
@@ -34,81 +41,71 @@ Senior Flutter-разработчик, 5 лет коммерческой Flutter
 
 ### Личные проекты
 
-- [Dropoly](https://nightwelf.github.io/dropoly/index.html) — мобильная головоломка в жанре number merge drop
+- [Dropoly](https://nightwelf.github.io/dropoly/index.html) — мобильная головоломка в жанре number merge drop (Google Play, RuStore)
 - [Fonic](https://nightwelf.github.io/fonic/) (в разработке) — диктофон для Android с офлайн-распознаванием речи
 - [Kept](https://nightwelf.github.io/kept/) (в разработке) — воспоминания из фото на телефоне, весь анализ на устройстве
 
 ### Технологии
 
-Flutter, Dart, BLoC, Dio, auto_route, go_router, provider, freezed, RxDart, get_it, Drift, flutter_localizations, Quill, WebSocket, Centrifuge, Matrix, GraphQL, WebRTC, Firebase, REST, SIP, Git, MSSQL, Node.js, MySQL, Docker, Vuetify, Leaflet, Figma, Go, Vue.js, Redis, Linux, C# и т.д.
-
-### AI-инструменты
-
-Claude, Cursor
+- **Flutter:** Flutter, Dart, BLoC, provider, RxDart, freezed, get_it, go_router, auto_route, Drift, SQLite, flutter_quill, Flutter Web, Flutter Desktop
+- **Связь и данные:** WebRTC, SIP, LiveKit, Jitsi, Asterisk, Centrifugo, Matrix, GraphQL, Dio, Firebase
+- **Backend и инфраструктура:** Node.js, Go, C#, MySQL, MSSQL, Redis, Docker, Linux
+- **Web, дизайн, AI:** Vue.js, Vuetify, Leaflet, Figma, Git, Claude Code, Cursor
 
 ---
 
 ## Опыт работы
 
-### Апрель 2025 - июль 2026 — Senior Flutter Developer, САТЕЛ, Группа компаний
+### Август 2026 - н.в. — Flutter Developer (самостоятельно), собственные проекты
 
-**Проект: UC — корпоративный мессенджер**
-- выполнил рефакторинг архитектуры фичи звонков
-- уменьшил потребление ресурсов звонком
-- спроектировал архитектуру и разработал фичу чатов
-- разработал адаптивную сетку для видеозвонков
-- внедрил собственные package для чатов и звонков
-- работал в команде из 8 человек
+- Dropoly — головоломка на Flutter, опубликована в Google Play и RuStore
+- Fonic — офлайн-диктофон с распознаванием речи на устройстве: whisper.cpp в изоляте, запись в foreground service, полнотекстовый поиск на FTS5
+- Kept — подборки воспоминаний из галереи без облака: ML Kit, группировка лиц на устройстве, фоновая индексация на зарядке
 
-**Стек:** BLoC, WebRTC, Centrifuge, Socket, Dio, RxDart, Matrix, Firebase, Clean Architecture, REST, SIP, go_router, git
+### Апрель 2025 - июль 2026 — Senior Flutter Developer, САТЕЛ
 
-### Март 2025 - апрель 2025 — Senior Flutter Developer, GiftBow
+**Проект: UC — корпоративный мессенджер: чаты, аудио/видеозвонки WebRTC/SIP, статусы присутствия**
+- переписал архитектуру звонков на WebRTC/SIP и снизил потребление ресурсов в звонке примерно на 30% по CPU, на 30% по памяти и на 20% по расходу батареи
+- спроектировал и разработал чаты с нуля на Centrifugo: личные и групповые, онлайн-статусы пользователей в реальном времени
+- сделал адаптивную сетку видеозвонка: раскладка подстраивается под число участников и размер экрана, от телефона до десктопа
+- вынес чаты и звонки в собственные пакеты; около 80% кода пакетов написал с AI-ассистентами, архитектуру, ревью и отладку вёл сам
 
-**Проект: GiftHorse — виш-листы и покупки**
-- спроектировал архитектуру
-- разработал бизнес логику и UI
-- работал в команде из 4 человек
+**Стек:** BLoC, Clean Architecture, go_router, WebRTC, SIP, Centrifugo, Matrix, Firebase, Dio, RxDart
 
-**Стек:** BLoC, go_router, Firebase, Dio, RxDart, Clean Architecture, REST, git
+### Декабрь 2024 - март 2025 — Senior Flutter Developer, М.Видео-Эльдорадо
 
-### Декабрь 2024 - март 2025 — Senior Flutter Developer, МВидео
+**Проект: внутренние сервисы — логистика, продажи, кредитование**
+- разработал 4 внутренних web-приложения на Flutter Web: движение товаров, калькулятор доставки, учёт ремонтов, трейд-ин
 
-**Проекты: Логистика и перевозки, продажи, кредитование**
-- разработал бизнес логику и UI крупных внутренних проектов
-- работал в команде из 8 человек
+**Стек:** Flutter Web, provider, Dio, Clean Architecture
 
-**Стек:** provider, Dio, Clean Architecture, REST, git
+### Июнь 2022 - декабрь 2024 — Tech Lead / Senior Flutter Developer, DLGroup
 
-### Июнь 2022 - декабрь 2024 — Senior Flutter Developer, DLGroup
+**Проект: DLS — корпоративный мессенджер с таск-трекером. iOS, Android, macOS, Windows, Linux, Web из одной кодовой базы**
+- начинал проект один: выбрал архитектуру (фичи в изолированных пакетах, состояние на BLoC), собрал первую версию и вырастил Flutter-команду до 8 человек; провёл для этого 200+ технических собеседований
+- выстроил процессы команды: code review, стандарты кода, шаблон спецификаций фич
+- прототипировал и сравнил несколько стеков связи: для чатов Matrix и Centrifugo, для звонков LiveKit, Jitsi и SIP через Asterisk; в прод ушли LiveKit и Centrifugo
+- разработал чаты и звонки: личные и групповые, форматированный текст (flutter_quill), локальный кэш на Drift, звонок контакту из телефонной книги через Firebase
+- сделал таск-трекер (список, дерево, канбан), портфели и проекты, оргструктуру компании
 
-**Проект: DLS — корпоративный jira-like мессенджер**
-- спроектировал архитектуру
-- разработал бизнес логику и UI фичи: чат, звонки, задачи, мероприятия, проекты, орг. структура
-- сформировал команду и выполнил постановку процессов: code review, стандарты и спецификации разработки, провёл 200+ собеседований
-- работал в команде из 8 человек
-
-**Стек:** BLoC, auto_route, Centrifuge, Socket, WebRTC (LiveKit), Matrix, Drift, Firebase, Dio, GraphQL, RxDart, flutter_quill, Clean Architecture, REST, SIP, git
+**Стек:** BLoC, Clean Architecture, auto_route, Matrix, Centrifugo, LiveKit, Jitsi, SIP (Asterisk), Drift, Firebase, GraphQL, Dio, RxDart, flutter_quill
 
 ### Ноябрь 2021 - июнь 2022 — Flutter Developer, Harddays
 
-**Работа над проектами в составе команд: доставка еды для малых городов (Vilka), приложение для инспекторов г. Москва (ОАТИ), управление устройством по Bluetooth (Небудильник), карта лояльности сетевого магазина (Loyalty.HD)**
-- вёрстка по дизайну Figma
-- интеграция сервисов (Firebase, Google, Apple, Яндекс, карты)
-- работал в команде из 6 человек
+**Аутсорс, команда 6 человек**
+- разработал 4 приложения для клиентов: доставку еды Vilka, приложение для инспекторов ОАТИ (Москва), Небудильник (управление устройством по Bluetooth), карту лояльности Loyalty.HD
+- интегрировал Google Pay и Apple Pay, Яндекс Карты, Firebase, авторизацию Google/Apple/Яндекс
 
-**Стек:** BLoC, Bluetooth, Firebase, auto_route, Dio, RxDart, Clean Architecture, REST, get_it, freezed, Google pay, Apple pay, Яндекс карты, git
+**Стек:** BLoC, Clean Architecture, auto_route, get_it, freezed, Dio, RxDart, Firebase, Bluetooth
 
-### Сентябрь 2013 - апрель 2022 — Ведущий инженер-программист/Инженер-программист, Уралэлектромедь, АО
+### Сентябрь 2013 - апрель 2022 — Ведущий инженер-программист, АО «Уралэлектромедь»
 
-**Проекты, внедрённые за время работы:**
-- Корпоративное Flutter-приложение — новости, зарплата, спецодежда, телефонный справочник; также сопутствующая инфраструктура (web-приложение администрирования контента, API-сервер, БД).
-- Flutter-приложение для информирования об инцидентах — рассылка push-уведомлений (Firebase), лента с описанием инцидента в карточке, сопутствующая инфраструктура (web-админка, API-сервер, БД).
-- Web-приложения выдачи/проверки одноразового пропуска — для охранников предприятия.
-- Web-терминал для получения детальной информации о сотруднике.
-- Web-приложение для контроля движения транспорта по GPS-трекеру.
-- Web-приложение для отслеживания частоты использования парковочного места владельцем.
+**Единственный разработчик: мобильные приложения, бэкенд, веб-админки**
+- в одиночку разработал корпоративное мобильное приложение на Flutter (новости, расчётный листок, спецодежда, справочник) вместе с API на Node.js, БД MySQL/MSSQL и админкой на Vue
+- сделал приложение оповещения об инцидентах с push-уведомлениями через Firebase, на той же инфраструктуре
+- разработал веб-системы для предприятия: пропуска для охраны, GPS-контроль транспорта, учёт парковки, информационный киоск
 
-**Стек:** Flutter, Node.js, MySQL, MSSQL, Vue.js, Vuetify, Leaflet, C#, git
+**Стек:** Flutter, Node.js, MySQL, MSSQL, Vue.js, Vuetify, Leaflet, C#
 
 ---
 
@@ -116,7 +113,7 @@ Claude, Cursor
 
 ### Dropoly — мобильная головоломка number merge drop
 
-[Сайт проекта](https://nightwelf.github.io/dropoly/index.html)
+[Сайт проекта](https://nightwelf.github.io/dropoly/index.html) · Google Play · RuStore
 
 - Казуальная игра в жанре number merge drop: тап по колонке роняет плитку, слияние с соседями того же номинала запускает каскад с множителем очков
 - 4 режима сложности (Easy/Normal/Hard/Expert) — видимость следующей плитки, частота бомб, условие проигрыша и максимальный номинал плитки
