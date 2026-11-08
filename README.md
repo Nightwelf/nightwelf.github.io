@@ -6,7 +6,6 @@
 - Занятость: полная, удалённо или офис
 - Готовность к командировкам: да
 - Электронная почта: nightwelf@gmail.com
-- Телефон: [+7 963 044-44-99](tel:+79630444499)
 - Telegram: [@nightwelf](https://t.me/nightwelf)
 - LinkedIn: [linkedin.com/in/pavelbernyaev](https://www.linkedin.com/in/pavelbernyaev/)
 - GitHub: [github.com/Nightwelf](https://github.com/Nightwelf)
