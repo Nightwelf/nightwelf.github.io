@@ -453,8 +453,11 @@
   .app-fonic { grid-column: span 7; }
   .app-kept { grid-column: span 5; }
   .app-dropoly { grid-column: span 12; flex-direction: row-reverse; }
-  .app-dropoly .viz { flex: 1 1 50%; height: auto; border-bottom: 0; border-left: 1px solid var(--line); min-height: 300px; }
-  .app-dropoly .app-body { flex: 1 1 50%; justify-content: center; }
+  .app-vakhter { grid-column: span 12; flex-direction: row; }
+  .app-dropoly .viz, .app-vakhter .viz { flex: 1 1 50%; height: auto; border-bottom: 0; min-height: 300px; }
+  .app-dropoly .viz { border-left: 1px solid var(--line); }
+  .app-vakhter .viz { border-right: 1px solid var(--line); }
+  .app-dropoly .app-body, .app-vakhter .app-body { flex: 1 1 50%; justify-content: center; }
 
   .viz { position: relative; height: 260px; overflow: hidden; border-bottom: 1px solid var(--line); }
   .app-body { display: flex; flex-direction: column; padding: 28px; flex: 1; }
@@ -598,6 +601,39 @@
     0% { transform: translateY(-140%); opacity: 0; }
     12%, 78% { transform: translateY(0); opacity: 1; }
     90%, 100% { transform: translateY(-140%); opacity: 0; }
+  }
+
+  /* Вахтёр */
+  .viz-vakhter { background: linear-gradient(160deg, #e1f1e6, #c8e3d2); display: grid; place-items: center; padding: 28px; }
+  :root[data-theme="dark"] .viz-vakhter { background: linear-gradient(160deg, #14271c, #1b3526); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .viz-vakhter { background: linear-gradient(160deg, #14271c, #1b3526); }
+  }
+  .calls { width: min(360px, 100%); margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .app .call::before { content: none; }
+  .app .call {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px 10px 14px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    box-shadow: 0 10px 24px -16px rgba(0, 0, 0, .4);
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
+  .call b { display: block; font-weight: 600; font-family: var(--mono); font-size: 0.8rem; }
+  .call small { color: var(--ink-3); font-size: 0.74rem; }
+  .verdict { margin-left: auto; flex: none; padding: 3px 9px; border-radius: 999px; font-family: var(--mono); font-size: 0.7rem; }
+  /* смешивание с --ink даёт читаемый цвет и в светлой, и в тёмной теме */
+  .verdict.off { background: color-mix(in srgb, #d93025 16%, transparent); color: color-mix(in srgb, #d93025 72%, var(--ink)); }
+  .verdict.on { background: color-mix(in srgb, #1e8e4e 18%, transparent); color: color-mix(in srgb, #1e8e4e 72%, var(--ink)); }
+  .call:first-child { animation: callIn 6s var(--ease) infinite; will-change: transform, opacity; }
+  @keyframes callIn {
+    0% { transform: translateY(-40%); opacity: 0; }
+    10%, 85% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0; }
   }
 
   /* Dropoly */
@@ -846,8 +882,8 @@
     .portrait { max-width: 420px; }
     .wave-card { left: auto; right: -12px; }
     .app-fonic, .app-kept { grid-column: span 12; }
-    .app-dropoly { flex-direction: column; }
-    .app-dropoly .viz { border-left: 0; border-bottom: 1px solid var(--line); min-height: 0; height: 320px; }
+    .app-dropoly, .app-vakhter { flex-direction: column; }
+    .app-dropoly .viz, .app-vakhter .viz { border-left: 0; border-right: 0; border-bottom: 1px solid var(--line); min-height: 0; height: 320px; }
     .about { grid-template-columns: 1fr; }
     .pkg { grid-template-columns: 40px 1fr; }
     .pkg p, .pkg-links { grid-column: 2; }
@@ -1024,11 +1060,12 @@
           <div class="when mono"><span data-en="08.2026 — present">08.2026 — н.в.</span></div>
           <div>
             <h3 class="company" data-en="Own projects">Собственные проекты</h3>
-            <p class="title" data-en="Flutter Developer (independent)">Flutter Developer (самостоятельно)</p>
+            <p class="title" data-en="Flutter / Android Developer (independent)">Flutter / Android Developer (самостоятельно)</p>
             <ul>
               <li data-en="&lt;a href=&quot;#apps&quot;&gt;Dropoly&lt;/a&gt; — a Flutter puzzle game, published on Google Play and RuStore"><a href="#apps">Dropoly</a> — головоломка на Flutter, опубликована в Google Play и RuStore</li>
-              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Fonic&lt;/a&gt; — an offline voice recorder with on-device speech recognition: whisper.cpp in an isolate, recording in a foreground service, FTS5 full-text search"><a href="#apps">Fonic</a> — офлайн-диктофон с распознаванием речи на устройстве: whisper.cpp в изоляте, запись в foreground service, полнотекстовый поиск на FTS5</li>
-              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Kept&lt;/a&gt; — memories from your gallery without the cloud: ML Kit, on-device face grouping, background indexing while charging"><a href="#apps">Kept</a> — подборки воспоминаний из галереи без облака: ML Kit, группировка лиц на устройстве, фоновая индексация на зарядке</li>
+              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Vakhter&lt;/a&gt; — a spam call blocker in native Kotlin: CallScreeningService, Jetpack Compose, MVI, Hilt, Room; works without internet access"><a href="#apps">Вахтёр</a> — блокировщик спам-звонков на нативном Kotlin: CallScreeningService, Jetpack Compose, MVI, Hilt, Room; работает без доступа в интернет</li>
+              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Fonic&lt;/a&gt; — an offline voice recorder with on-device speech recognition: whisper.cpp in an isolate, recording in a foreground service, FTS5 full-text search; in closed testing"><a href="#apps">Fonic</a> — офлайн-диктофон с распознаванием речи на устройстве: whisper.cpp в изоляте, запись в foreground service, полнотекстовый поиск на FTS5; в закрытом тесте</li>
+              <li data-en="&lt;a href=&quot;#apps&quot;&gt;Kept&lt;/a&gt; — memories from your gallery without the cloud: ML Kit, on-device face grouping, background indexing while charging; published on RuStore"><a href="#apps">Kept</a> — подборки воспоминаний из галереи без облака: ML Kit, группировка лиц на устройстве, фоновая индексация на зарядке; опубликовано в RuStore</li>
             </ul>
           </div>
         </li>
@@ -1132,7 +1169,7 @@
             </div>
           </div>
           <div class="app-body">
-            <span class="mono" data-en="Android · whisper.cpp · in development">Android · whisper.cpp · в разработке</span>
+            <span class="mono" data-en="Android · whisper.cpp · closed testing">Android · whisper.cpp · закрытый тест</span>
             <h3><a href="https://nightwelf.github.io/fonic/" target="_blank" rel="noopener">Fonic</a></h3>
             <p class="desc" data-en="A voice recorder with on-device speech recognition: recording, transcription and search work in airplane mode.">Диктофон с распознаванием речи прямо на устройстве: запись, расшифровка и поиск работают в самолётном режиме.</p>
             <ul>
@@ -1150,7 +1187,7 @@
             <div class="notif"><span class="notif-ico"></span><span data-en="&lt;b&gt;On this day&lt;/b&gt;3 years ago"><b>В этот день</b>3 года назад</span></div>
           </div>
           <div class="app-body">
-            <span class="mono" data-en="Android · ML Kit · in development">Android · ML Kit · в разработке</span>
+            <span class="mono" data-en="RuStore · ML Kit · no cloud">RuStore · ML Kit · без облака</span>
             <h3><a href="https://nightwelf.github.io/kept/" target="_blank" rel="noopener">Kept</a></h3>
             <p class="desc" data-en="Every morning — a memory from photos already on your phone. No cloud, no accounts.">Каждое утро — воспоминание из фото, которые уже лежат на телефоне. Без облака и аккаунтов.</p>
             <ul>
@@ -1159,6 +1196,28 @@
               <li data-en="Heavy gallery indexing runs at night while charging">Тяжёлая индексация галереи — ночью, на зарядке</li>
             </ul>
             <span class="app-link" data-href="nightwelf.github.io/kept"><span data-en="Project site">Сайт проекта</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
+          </div>
+        </article>
+
+        <article class="app app-vakhter" data-reveal>
+          <div class="viz viz-vakhter" aria-hidden="true">
+            <ul class="calls">
+              <li class="call"><span><b>+7 495 128-44-02</b><small data-en="Unknown number">Незнакомый номер</small></span><span class="verdict off" data-en="declined">сброшен</span></li>
+              <li class="call"><span><b>+7 916 123-45-67</b><small data-en="Called again in 2 min">Перезвонил через 2 мин</small></span><span class="verdict on" data-en="let through">пропущен</span></li>
+              <li class="call"><span><b data-en="Mom">Мама</b><small data-en="Contact">Контакт</small></span><span class="verdict on" data-en="let through">пропущен</span></li>
+              <li class="call"><span><b data-en="Hidden number">Скрытый номер</b><small data-en="Caller ID hidden">Номер не определён</small></span><span class="verdict off" data-en="declined">сброшен</span></li>
+            </ul>
+          </div>
+          <div class="app-body">
+            <span class="mono" data-en="Android · Kotlin · closed testing">Android · Kotlin · закрытый тест</span>
+            <h3><a href="https://nightwelf.github.io/vakhter/" target="_blank" rel="noopener" data-en="Vakhter">Вахтёр</a></h3>
+            <p class="desc" data-en="A call filter: declines numbers that are neither in contacts nor in the whitelist. Native Kotlin, fully offline — the app has no INTERNET permission at all.">Фильтр звонков: сбрасывает номера, которых нет ни в контактах, ни в белом списке. Нативный Kotlin, полностью офлайн — у приложения нет даже разрешения на интернет.</p>
+            <ul>
+              <li data-en="CallScreeningService answers within the system timeout; on any failure the call goes through">CallScreeningService отвечает в пределах системного таймаута, при любом сбое звонок пропускается</li>
+              <li data-en="Repeat call, “expecting a call” pause, numbers I called myself, prefix rules">Повторный звонок, пауза «жду звонка», пропуск тех, кому звонил сам, правила по префиксам</li>
+              <li data-en="Jetpack Compose, MVI, Hilt, Room, DataStore; decision logic covered by unit tests">Jetpack Compose, MVI, Hilt, Room, DataStore; логика решения покрыта unit-тестами</li>
+            </ul>
+            <span class="app-link" data-href="nightwelf.github.io/vakhter"><span data-en="Project site">Сайт проекта</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
           </div>
         </article>
 
@@ -1249,8 +1308,8 @@
 
       <div class="stack-grid">
         <div class="stack-card" data-reveal>
-          <h3>Flutter</h3>
-          <ul class="tags"><li>Flutter</li><li>Dart</li><li>BLoC</li><li>provider</li><li>RxDart</li><li>freezed</li><li>get_it</li><li>go_router</li><li>auto_route</li><li>Drift</li><li>SQLite</li><li>flutter_quill</li><li>Flutter Web</li><li>Flutter Desktop</li></ul>
+          <h3 data-en="Flutter and Android">Flutter и Android</h3>
+          <ul class="tags"><li>Flutter</li><li>Dart</li><li>BLoC</li><li>provider</li><li>RxDart</li><li>freezed</li><li>get_it</li><li>go_router</li><li>auto_route</li><li>Drift</li><li>SQLite</li><li>flutter_quill</li><li>Flutter Web</li><li>Flutter Desktop</li><li>Kotlin</li><li>Jetpack Compose</li><li>Hilt</li><li>Room</li></ul>
         </div>
         <div class="stack-card" data-reveal style="--d:80ms">
           <h3 data-en="Networking and data">Связь и данные</h3>

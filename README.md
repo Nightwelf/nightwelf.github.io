@@ -41,12 +41,13 @@
 ### Личные проекты
 
 - [Dropoly](https://nightwelf.github.io/dropoly/index.html) — мобильная головоломка в жанре number merge drop (Google Play, RuStore)
-- [Fonic](https://nightwelf.github.io/fonic/) (в разработке) — диктофон для Android с офлайн-распознаванием речи
-- [Kept](https://nightwelf.github.io/kept/) (в разработке) — воспоминания из фото на телефоне, весь анализ на устройстве
+- [Вахтёр](https://nightwelf.github.io/vakhter/) (закрытый тест) — блокировщик спам-звонков для Android на Kotlin, работает без интернета
+- [Fonic](https://nightwelf.github.io/fonic/) (закрытый тест) — диктофон для Android с офлайн-распознаванием речи
+- [Kept](https://nightwelf.github.io/kept/) — воспоминания из фото на телефоне, весь анализ на устройстве (RuStore)
 
 ### Технологии
 
-- **Flutter:** Flutter, Dart, BLoC, provider, RxDart, freezed, get_it, go_router, auto_route, Drift, SQLite, flutter_quill, Flutter Web, Flutter Desktop
+- **Flutter и Android:** Flutter, Dart, BLoC, provider, RxDart, freezed, get_it, go_router, auto_route, Drift, SQLite, flutter_quill, Flutter Web, Flutter Desktop, Kotlin, Jetpack Compose, Hilt, Room
 - **Связь и данные:** WebRTC, SIP, LiveKit, Jitsi, Asterisk, Centrifugo, Matrix, GraphQL, Dio, Firebase
 - **Backend и инфраструктура:** Node.js, Go, C#, MySQL, MSSQL, Redis, Docker, Linux
 - **Web, дизайн, AI:** Vue.js, Vuetify, Leaflet, Figma, Git, Claude Code, Cursor
@@ -55,11 +56,12 @@
 
 ## Опыт работы
 
-### Август 2026 - н.в. — Flutter Developer (самостоятельно), собственные проекты
+### Август 2026 - н.в. — Flutter / Android Developer (самостоятельно), собственные проекты
 
 - Dropoly — головоломка на Flutter, опубликована в Google Play и RuStore
-- Fonic — офлайн-диктофон с распознаванием речи на устройстве: whisper.cpp в изоляте, запись в foreground service, полнотекстовый поиск на FTS5
-- Kept — подборки воспоминаний из галереи без облака: ML Kit, группировка лиц на устройстве, фоновая индексация на зарядке
+- Вахтёр — блокировщик спам-звонков на нативном Kotlin: CallScreeningService, Jetpack Compose, MVI, Hilt, Room; работает без доступа в интернет
+- Fonic — офлайн-диктофон с распознаванием речи на устройстве: whisper.cpp в изоляте, запись в foreground service, полнотекстовый поиск на FTS5; в закрытом тесте
+- Kept — подборки воспоминаний из галереи без облака: ML Kit, группировка лиц на устройстве, фоновая индексация на зарядке; опубликовано в RuStore
 
 ### Апрель 2025 - июль 2026 — Senior Flutter Developer, САТЕЛ
 
@@ -120,7 +122,18 @@
 - Прокачка: монеты и опыт открывают скины плиток, аватары, темы интерфейса; система достижений за каскады
 - Полностью офлайн, без аккаунтов — прогресс, монеты и рекорды хранятся на устройстве
 
-### Fonic — диктофон с офлайн-распознаванием речи (в разработке)
+### Вахтёр — блокировщик спам-звонков для Android (закрытый тест)
+
+[Сайт проекта](https://nightwelf.github.io/vakhter/)
+
+- Сбрасывает звонки с номеров, которых нет ни в контактах, ни в белом списке; скрытые номера — по отдельному переключателю
+- Полностью офлайн: у приложения нет разрешения на интернет, номера и журнал не покидают телефон
+- CallScreeningService отвечает в пределах системного таймаута, при любом сбое звонок пропускается (fail-open)
+- Исключения: повторный звонок за несколько минут, пауза «жду звонка», те, кому звонил сам, правила по префиксам
+- Режимы «сбросить» и «заглушить», журнал сброшенных звонков, проверка номера «что будет, если он позвонит»
+- Нативный Kotlin: Jetpack Compose, MVI, Hilt, Room, DataStore; логика решения покрыта unit-тестами
+
+### Fonic — диктофон с офлайн-распознаванием речи (закрытый тест)
 
 [Сайт проекта](https://nightwelf.github.io/fonic/)
 
@@ -131,9 +144,9 @@
 - Экспорт в SRT/VTT и zip-архив с манифестом версии схемы, импорт с проверкой совместимости
 - BLoC, Drift, go_router; запись и распознавание вынесены в собственные пакеты, waveform — `audio_waveform_kit`
 
-### Kept — воспоминания из фото на телефоне (в разработке)
+### Kept — воспоминания из фото на телефоне
 
-[Сайт проекта](https://nightwelf.github.io/kept/)
+[Сайт проекта](https://nightwelf.github.io/kept/) · RuStore
 
 - Каждое утро — подборка из галереи: «в этот день», поездки, лучшее за месяц, праздники, воспоминания в лицах
 - Весь анализ на устройстве (ML Kit): отбор резких кадров с лицами и улыбками, отсев дублей серийной съёмки, скриншотов и документов
